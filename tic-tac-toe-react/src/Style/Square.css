@@ -1,0 +1,61 @@
+.square {
+  aspect-ratio: 1;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  font-size: 2.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  min-height: 70px;
+}
+
+.square:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(102, 126, 234, 0.4);
+}
+
+.square:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.square:disabled {
+  cursor: not-allowed;
+}
+
+.square.winning {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  animation: pulse 0.6s ease-in-out infinite;
+}
+
+.square-value.x-player {
+  color: #667eea;
+}
+
+.square-value.o-player {
+  color: #f093fb;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@media (min-width: 640px) {
+  .square {
+    font-size: 3rem;
+    min-height: 90px;
+  }
+}
+
+@media (max-width: 400px) {
+  .square {
+    font-size: 2rem;
+    min-height: 60px;
+  }
+}

@@ -1,0 +1,212 @@
+/* ! A COMPLETE CSS OF THIS GAME */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.app-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+}
+
+.game-container {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  max-width: 500px;
+  width: 100%;
+  border:1px solid white;
+  height: auto;
+}
+
+.title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 20px;
+}
+
+.status-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 25px;
+}
+
+.status-icon {
+  font-size: 1.8rem;
+}
+
+.status-text.status-x {
+  color: #4b66df;
+}
+
+.status-text.status-o {
+  color: #95399f;
+}
+
+.status-text.status-draw {
+  color: #ffa500;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.square {
+  aspect-ratio: 1;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  font-size: 2.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  min-height: 70px;
+}
+
+.square:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(102, 126, 234, 0.4);
+}
+
+.square:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.square:disabled {
+  cursor: not-allowed;
+}
+
+.square.winning {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  animation: pulse 0.6s ease-in-out infinite;
+}
+
+.square-value.x-player {
+  color: #4460e0;
+}
+
+.square-value.o-player {
+  color: #8e2a99;
+}
+
+.reset-button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  font-weight: bold;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.reset-button:hover {
+  transform: translateY(-2px)scaleX(1.05);
+  box-shadow: 0 6px 12px rgba(102, 126, 234, 0.4);
+}
+
+.reset-button:active {
+  transform: translateY(0);
+}
+
+.player-legend {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.legend-symbol {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.legend-symbol.x-player {
+  color: #667eea;
+}
+
+.legend-symbol.o-player {
+  color: #a237ae;
+}
+
+.legend-label {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@media (min-width: 640px) {
+  .title {
+    font-size: 3rem;
+  }
+  
+  .square {
+    font-size: 3rem;
+    min-height: 90px;
+  }
+  
+  .status-container {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .game-container {
+    padding: 20px;
+  }
+  
+  .title {
+    font-size: 2rem;
+  }
+  
+  .square {
+    font-size: 2rem;
+    min-height: 60px;
+  }
+  
+  .board {
+    gap: 8px;
+  }
+}
